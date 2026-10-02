@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Register - Unified Campus Resources</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+<header class="navbar">
+
+    <div class="logo">
+        Unified Campus Resources
+    </div>
+
+
+    <nav>
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="dashboard.html">
+            Dashboard
+        </a>
+
+        <a href="lost-found.html">
+            Lost & Found
+        </a>
+
+        <a href="booking.html">
+            Seminar Hall
+        </a>
+
+        <a href="login.html">
+            Login
+        </a>
+
+        <a href="register.html"
+           class="active nav-register">
+
+            Register
+
+        </a>
+
+    </nav>
+
+</header>
+
+
+<main class="auth-container">
+
+    <section class="auth-card">
+
+        <div class="auth-icon">
+            👤
+        </div>
+
+
+        <h1>
+            Create Account
+        </h1>
+
+
+        <p class="auth-subtitle">
+            Register to use campus services
+        </p>
+
+
+        <form id="registerForm">
+
+
+            <div class="form-group">
+
+                <label for="registerName">
+                    Full Name
+                </label>
+
+                <input
+                    type="text"
+                    id="registerName"
+                    placeholder="Enter your full name"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="registerEmail">
+                    Email Address
+                </label>
+
+                <input
+                    type="email"
+                    id="registerEmail"
+                    placeholder="Enter your email"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="registerPassword">
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    id="registerPassword"
+                    placeholder="Create a password"
+                    minlength="6"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="confirmPassword">
+                    Confirm Password
+                </label>
+
+                <input
+                    type="password"
+                    id="confirmPassword"
+                    placeholder="Re-enter your password"
+                    minlength="6"
+                    required
+                >
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="btn primary-btn auth-btn">
+
+                Create Account
+
+            </button>
+
+
+        </form>
+
+
+        <div id="registerMessage"
+             class="message">
+        </div>
+
+
+        <p class="auth-link">
+
+            Already have an account?
+
+            <a href="login.html">
+                Login here
+            </a>
+
+        </p>
+
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <p>
+        © 2026 Unified Campus Resources Management System
+    </p>
+
+</footer>
+
+
+<script src="app.js"></script>
+
+</body>
+
+</html>

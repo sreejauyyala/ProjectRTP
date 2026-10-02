@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Seminar Hall Booking</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <div class="logo">
+        Unified Campus Resources
+    </div>
+
+    <nav>
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="dashboard.html">
+            Dashboard
+        </a>
+
+        <a href="lost-found.html">
+            Lost & Found
+        </a>
+
+        <a href="lost-found-records.html">
+            View Items
+        </a>
+
+        <a href="booking.html" class="active">
+            Seminar Hall
+        </a>
+
+        <span id="userNameNav"></span>
+
+        <button
+            onclick="logout()"
+            class="logout-btn">
+            Logout
+        </button>
+
+    </nav>
+
+</header>
+
+
+<main class="page-container">
+
+
+    <!-- ============================================
+         BOOKING FORM
+    ============================================= -->
+
+    <section class="form-section">
+
+        <h1>
+            Seminar Hall Booking
+        </h1>
+
+        <p>
+            Select a hall, choose the date and time,
+            check availability and book the hall.
+        </p>
+
+
+        <form id="bookingForm">
+
+
+            <!-- HALL -->
+
+            <div class="form-group">
+
+                <label for="hall">
+                    Select Seminar Hall
+                </label>
+
+                <select
+                    id="hall"
+                    required>
+
+                    <option value="">
+                        Loading halls...
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- DATE -->
+
+            <div class="form-group">
+
+                <label for="bookingDate">
+                    Date
+                </label>
+
+                <input
+                    type="date"
+                    id="bookingDate"
+                    required>
+
+            </div>
+
+
+            <!-- START -->
+
+            <div class="form-group">
+
+                <label for="startTime">
+                    Start Time
+                </label>
+
+                <input
+                    type="time"
+                    id="startTime"
+                    required>
+
+            </div>
+
+
+            <!-- END -->
+
+            <div class="form-group">
+
+                <label for="endTime">
+                    End Time
+                </label>
+
+                <input
+                    type="time"
+                    id="endTime"
+                    required>
+
+            </div>
+
+
+            <!-- PURPOSE -->
+
+            <div class="form-group">
+
+                <label for="purpose">
+                    Purpose
+                </label>
+
+                <textarea
+                    id="purpose"
+                    placeholder="Enter the purpose of booking"
+                    required></textarea>
+
+            </div>
+
+
+            <!-- AVAILABILITY -->
+
+            <button
+                type="button"
+                onclick="checkHallAvailability()"
+                class="btn availability-btn">
+
+                Check Availability
+
+            </button>
+
+
+            <div
+                id="availabilityMessage"
+                class="message">
+            </div>
+
+
+            <!-- BOOK -->
+
+            <button
+                type="submit"
+                class="btn primary-btn">
+
+                Book Seminar Hall
+
+            </button>
+
+        </form>
+
+
+        <div
+            id="bookingMessage"
+            class="message">
+        </div>
+
+    </section>
+
+
+
+    <!-- ============================================
+         BOOKING RECORDS
+    ============================================= -->
+
+    <section class="data-section">
+
+        <h2>
+            Seminar Hall Booking Records
+        </h2>
+
+
+        <div class="table-container">
+
+            <table class="data-table">
+
+                <thead>
+
+                <tr>
+
+                    <th>Hall</th>
+                    <th>Capacity</th>
+                    <th>Location</th>
+                    <th>Date</th>
+                    <th>Start Time</th>
+                    <th>End Time</th>
+                    <th>Purpose</th>
+                    <th>Booked By</th>
+                    <th>Email</th>
+                    <th>Status</th>
+                    <th>Action</th>
+
+                </tr>
+
+                </thead>
+
+
+                <tbody id="bookingTableBody">
+
+                <tr>
+
+                    <td colspan="11">
+                        Loading bookings...
+                    </td>
+
+                </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <p>
+        © 2026 Unified Campus Resources Management System
+    </p>
+
+</footer>
+
+
+<script src="app.js"></script>
+
+</body>
+
+</html>

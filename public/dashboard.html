@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <div class="logo">
+        Unified Campus Resources
+    </div>
+
+    <nav>
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="dashboard.html"
+           class="active">
+            Dashboard
+        </a>
+
+        <a href="lost-found.html">
+            Lost & Found
+        </a>
+
+        <a href="lost-found-records.html">
+            View Items
+        </a>
+
+        <a href="booking.html">
+            Seminar Hall
+        </a>
+
+        <span id="userNameNav"></span>
+
+        <button
+            onclick="logout()"
+            class="logout-btn">
+            Logout
+        </button>
+
+    </nav>
+
+</header>
+
+
+<main class="dashboard-page">
+
+    <div class="dashboard-header">
+
+        <h1>
+            Dashboard
+        </h1>
+
+        <p>
+            Welcome to the Unified Campus Resources
+            Management System.
+        </p>
+
+    </div>
+
+
+    <!-- =================================================
+         STATISTICS
+    ================================================== -->
+
+    <section class="dashboard-stats">
+
+
+        <!-- REGISTERED USERS -->
+
+        <div class="dashboard-stat-card">
+
+            <div class="dashboard-stat-icon">
+                👥
+            </div>
+
+            <h3>
+                Registered Users
+            </h3>
+
+            <h2 id="dashboardRegisteredUsers">
+                0
+            </h2>
+
+        </div>
+
+
+        <!-- LOST -->
+
+        <div class="dashboard-stat-card">
+
+            <div class="dashboard-stat-icon">
+                🔴
+            </div>
+
+            <h3>
+                Lost Items
+            </h3>
+
+            <h2 id="dashboardLostItems">
+                0
+            </h2>
+
+        </div>
+
+
+        <!-- FOUND -->
+
+        <div class="dashboard-stat-card">
+
+            <div class="dashboard-stat-icon">
+                🟢
+            </div>
+
+            <h3>
+                Found Items
+            </h3>
+
+            <h2 id="dashboardFoundItems">
+                0
+            </h2>
+
+        </div>
+
+
+        <!-- CLAIMED -->
+
+        <div class="dashboard-stat-card">
+
+            <div class="dashboard-stat-icon">
+                ✅
+            </div>
+
+            <h3>
+                Claimed Items
+            </h3>
+
+            <h2 id="dashboardClaimedItems">
+                0
+            </h2>
+
+        </div>
+
+
+        <!-- BOOKINGS -->
+
+        <div class="dashboard-stat-card">
+
+            <div class="dashboard-stat-icon">
+                🏛️
+            </div>
+
+            <h3>
+                Active Bookings
+            </h3>
+
+            <h2 id="dashboardActiveBookings">
+                0
+            </h2>
+
+        </div>
+
+
+    </section>
+
+
+    <!-- =================================================
+         DASHBOARD ACTIONS
+    ================================================== -->
+
+    <section class="dashboard-actions">
+
+
+        <div class="action-card">
+
+            <div class="action-icon">
+                🔎
+            </div>
+
+            <h2>
+                Report Lost / Found
+            </h2>
+
+            <p>
+                Report a lost or found item
+                with description, location and image.
+            </p>
+
+            <a
+                href="lost-found.html"
+                class="btn primary-btn">
+
+                Report Item
+
+            </a>
+
+        </div>
+
+
+        <div class="action-card">
+
+            <div class="action-icon">
+                📋
+            </div>
+
+            <h2>
+                View Lost & Found
+            </h2>
+
+            <p>
+                View currently reported
+                lost and found items.
+            </p>
+
+            <a
+                href="lost-found-records.html"
+                class="btn primary-btn">
+
+                View Items
+
+            </a>
+
+        </div>
+
+
+        <div class="action-card">
+
+            <div class="action-icon">
+                🏛️
+            </div>
+
+            <h2>
+                Seminar Hall Booking
+            </h2>
+
+            <p>
+                Check availability and book
+                one of the three seminar halls.
+            </p>
+
+            <a
+                href="booking.html"
+                class="btn primary-btn">
+
+                Book Hall
+
+            </a>
+
+        </div>
+
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <p>
+        © 2026 Unified Campus Resources Management System
+    </p>
+
+</footer>
+
+
+<script src="app.js"></script>
+
+</body>
+
+</html>

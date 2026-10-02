@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login - Unified Campus Resources</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <div class="logo">
+        Unified Campus Resources
+    </div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="lost-found.html">Lost & Found</a>
+        <a href="booking.html">Seminar Hall</a>
+        <a href="login.html" class="active">Login</a>
+        <a href="register.html" class="nav-register">Register</a>
+    </nav>
+
+</header>
+
+
+<main class="auth-container">
+
+    <section class="auth-card">
+
+        <div class="auth-icon">
+            🔐
+        </div>
+
+        <h1>Welcome Back</h1>
+
+        <p class="auth-subtitle">
+            Login to access your campus resources
+        </p>
+
+
+        <form id="loginForm">
+
+            <div class="form-group">
+
+                <label for="loginEmail">
+                    Email Address
+                </label>
+
+                <input
+                    type="email"
+                    id="loginEmail"
+                    placeholder="Enter your email"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="loginPassword">
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    id="loginPassword"
+                    placeholder="Enter your password"
+                    required
+                >
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="btn primary-btn auth-btn">
+
+                Login
+
+            </button>
+
+        </form>
+
+
+        <div id="loginMessage" class="message"></div>
+
+
+        <p class="auth-link">
+
+            Don't have an account?
+
+            <a href="register.html">
+                Create Account
+            </a>
+
+        </p>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <p>
+        © 2026 Unified Campus Resources Management System
+    </p>
+
+</footer>
+
+
+<script src="app.js"></script>
+
+</body>
+
+</html>

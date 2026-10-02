@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Lost & Found</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <div class="logo">
+        Unified Campus Resources
+    </div>
+
+    <nav>
+
+        <a href="dashboard.html">
+            Dashboard
+        </a>
+
+        <a href="lost-found.html"
+           class="active">
+            Lost & Found
+        </a>
+
+        <a href="lost-found-records.html">
+            View Items
+        </a>
+
+        <a href="booking.html">
+            Seminar Hall
+        </a>
+
+        <span id="userNameNav"></span>
+
+        <button onclick="logout()"
+                class="logout-btn">
+            Logout
+        </button>
+
+    </nav>
+
+</header>
+
+
+<main class="page-container">
+
+    <section class="form-section">
+
+        <h1>
+            Report Lost or Found Item
+        </h1>
+
+        <p>
+            Enter the details of the item below.
+        </p>
+
+
+        <form id="itemForm"
+              enctype="multipart/form-data">
+
+
+            <div class="form-group">
+
+                <label>
+                    Item Name
+                </label>
+
+                <input
+                    type="text"
+                    id="itemName"
+                    name="itemName"
+                    placeholder="Example: Mobile Phone"
+                    required>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Type
+                </label>
+
+                <select
+                    id="itemType"
+                    name="type"
+                    required>
+
+                    <option value="">
+                        Select Type
+                    </option>
+
+                    <option value="Lost">
+                        Lost
+                    </option>
+
+                    <option value="Found">
+                        Found
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Description
+                </label>
+
+                <textarea
+                    id="itemDescription"
+                    name="description"
+                    placeholder="Describe the item"
+                    required></textarea>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Location
+                </label>
+
+                <input
+                    type="text"
+                    id="itemLocation"
+                    name="location"
+                    placeholder="Where was it lost/found?"
+                    required>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Upload Image
+                </label>
+
+                <input
+                    type="file"
+                    id="itemImage"
+                    name="image"
+                    accept="image/*">
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="btn primary-btn">
+
+                Submit Report
+
+            </button>
+
+        </form>
+
+
+        <div id="itemMessage"
+             class="message">
+        </div>
+
+    </section>
+
+</main>
+
+<footer>
+
+    <p>
+        © 2026 Unified Campus Resources Management System
+    </p>
+
+</footer>
+
+<script src="app.js"></script>
+
+</body>
+
+</html>

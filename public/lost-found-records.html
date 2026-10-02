@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Lost & Found Records</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <div class="logo">
+        Unified Campus Resources
+    </div>
+
+    <nav>
+
+        <a href="dashboard.html">
+            Dashboard
+        </a>
+
+        <a href="lost-found.html">
+            Lost & Found
+        </a>
+
+        <a href="lost-found-records.html"
+           class="active">
+            View Items
+        </a>
+
+        <a href="booking.html">
+            Seminar Hall
+        </a>
+
+        <span id="userNameNav"></span>
+
+        <button onclick="logout()"
+                class="logout-btn">
+            Logout
+        </button>
+
+    </nav>
+
+</header>
+
+
+<main class="page-container">
+
+    <section class="data-section">
+
+        <h1>
+            Reported Lost & Found Items
+        </h1>
+
+        <div class="table-container">
+
+            <table class="data-table">
+
+                <thead>
+
+                <tr>
+
+                    <th>Item Name</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                    <th>Location</th>
+                    <th>Image</th>
+                    <th>Status</th>
+                    <th>Reported By</th>
+                    <th>Email</th>
+                    <th>Date</th>
+                    <th>Action</th>
+
+                </tr>
+
+                </thead>
+
+
+                <tbody id="lostFoundTableBody">
+
+                    <tr>
+
+                        <td colspan="10">
+                            Loading...
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <p>
+        © 2026 Unified Campus Resources Management System
+    </p>
+
+</footer>
+
+
+<script src="app.js"></script>
+
+</body>
+
+</html>
