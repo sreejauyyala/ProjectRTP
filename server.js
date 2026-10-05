@@ -208,119 +208,141 @@ async function sendEmailToAllUsers(subject, html) {
    BOOKING CONFIRMATION EMAIL
 ===================================================== */
 
+/* =====================================================
+   BOOKING CONFIRMATION EMAIL
+   SEND ONLY TO THE PERSON WHO BOOKED
+===================================================== */
+
 async function sendBookingEmail(
-  user,
-  booking,
-  hall
+    user,
+    booking,
+    hall
 ) {
-  try {
-    await transporter.sendMail({
-      from:
-        `"Campus Resources System" <${process.env.EMAIL_USER}>`,
 
-      to: user.email,
+    try {
 
-      subject:
-        "Seminar Hall Booking Confirmation",
+        await transporter.sendMail({
 
-      html: `
-        <div style="
-          font-family:Arial;
-          padding:25px;
-          background:#f5f7fb;
-        ">
+            from:
+                `"Campus Resources System" <${process.env.EMAIL_USER}>`,
 
-          <div style="
-            max-width:600px;
-            margin:auto;
-            background:white;
-            padding:25px;
-            border-radius:12px;
-          ">
+            /* ONLY THE BOOKING USER */
+            to:
+                user.email,
 
-            <h2 style="color:#2563eb;">
-              Seminar Hall Booking Confirmed
-            </h2>
+            /* DO NOT ADD cc OR bcc HERE */
 
-            <p>
-              Hello <b>${user.name}</b>,
-            </p>
+            subject:
+                "Seminar Hall Booking Confirmation",
 
-            <p>
-              Your seminar hall has been
-              successfully booked.
-            </p>
+            html: `
 
-            <table
-              border="1"
-              cellpadding="12"
-              cellspacing="0"
-              width="100%"
-              style="border-collapse:collapse;"
-            >
+                <div style="
+                    font-family: Arial, sans-serif;
+                    padding: 25px;
+                    background: #f5f7fb;
+                ">
 
-              <tr>
-                <td><b>Hall</b></td>
-                <td>${hall.name}</td>
-              </tr>
+                    <div style="
+                        max-width: 600px;
+                        margin: auto;
+                        background: white;
+                        padding: 25px;
+                        border-radius: 12px;
+                    ">
 
-              <tr>
-                <td><b>Capacity</b></td>
-                <td>${hall.capacity}</td>
-              </tr>
+                        <h2 style="color:#2563eb;">
+                            Seminar Hall Booking Confirmed
+                        </h2>
 
-              <tr>
-                <td><b>Location</b></td>
-                <td>${hall.location}</td>
-              </tr>
+                        <p>
+                            Hello
+                            <b>${user.name}</b>,
+                        </p>
 
-              <tr>
-                <td><b>Date</b></td>
-                <td>${booking.date}</td>
-              </tr>
+                        <p>
+                            Your seminar hall booking
+                            has been confirmed successfully.
+                        </p>
 
-              <tr>
-                <td><b>Time</b></td>
-                <td>
-                  ${booking.startTime}
-                  -
-                  ${booking.endTime}
-                </td>
-              </tr>
+                        <table
+                            border="1"
+                            cellpadding="12"
+                            cellspacing="0"
+                            width="100%"
+                            style="border-collapse:collapse;"
+                        >
 
-              <tr>
-                <td><b>Purpose</b></td>
-                <td>${booking.purpose}</td>
-              </tr>
+                            <tr>
+                                <td><b>Hall</b></td>
+                                <td>${hall.name}</td>
+                            </tr>
 
-              <tr>
-                <td><b>Status</b></td>
-                <td>Confirmed</td>
-              </tr>
+                            <tr>
+                                <td><b>Capacity</b></td>
+                                <td>${hall.capacity}</td>
+                            </tr>
 
-            </table>
+                            <tr>
+                                <td><b>Location</b></td>
+                                <td>${hall.location}</td>
+                            </tr>
 
-            <p>
-              Thank you for using the
-              Unified Campus Resources
-              Management System.
-            </p>
+                            <tr>
+                                <td><b>Date</b></td>
+                                <td>${booking.date}</td>
+                            </tr>
 
-          </div>
+                            <tr>
+                                <td><b>Time</b></td>
+                                <td>
+                                    ${booking.startTime}
+                                    -
+                                    ${booking.endTime}
+                                </td>
+                            </tr>
 
-        </div>
-      `
-    });
+                            <tr>
+                                <td><b>Purpose</b></td>
+                                <td>${booking.purpose}</td>
+                            </tr>
 
-    console.log(
-      "Booking confirmation email sent"
-    );
-  } catch (error) {
-    console.error(
-      "Booking email error:",
-      error.message
-    );
-  }
+                            <tr>
+                                <td><b>Status</b></td>
+                                <td>Confirmed</td>
+                            </tr>
+
+                        </table>
+
+                        <p style="margin-top:20px;">
+                            Thank you for using the
+                            Unified Campus Resources
+                            Management System.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            `
+
+        });
+
+
+        console.log(
+            `Booking confirmation email sent ONLY to: ${user.email}`
+        );
+
+
+    } catch (error) {
+
+        console.error(
+            "Booking email error:",
+            error.message
+        );
+
+    }
+
 }
 
 /* =====================================================
@@ -1507,8 +1529,7 @@ app.post(
         )
 
           .populate(
-            "hall"
-          )
+            "hall")
 
           .populate(
             "user",
@@ -1520,59 +1541,6 @@ app.post(
         populatedBooking,
         populatedBooking.hall
       );
-      /* ================================================
-   EMAIL NOTIFICATION TO ALL REGISTERED USERS
-================================================ */
-
-await sendEmailToAllUsers(
-
-  "New Seminar Hall Booking",
-
-  `
-  <h2>New Seminar Hall Booking</h2>
-
-  <p>
-      A seminar hall has been booked.
-  </p>
-
-  <p>
-      <b>Hall:</b>
-      ${populatedBooking.hall.name}
-  </p>
-
-  <p>
-      <b>Date:</b>
-      ${populatedBooking.date}
-  </p>
-
-  <p>
-      <b>Time:</b>
-      ${populatedBooking.startTime}
-      -
-      ${populatedBooking.endTime}
-  </p>
-
-  <p>
-      <b>Purpose:</b>
-      ${populatedBooking.purpose}
-  </p>
-
-  <p>
-      <b>Booked By:</b>
-      ${populatedBooking.user.name}
-  </p>
-
-  <p>
-      <b>Status:</b> Confirmed
-  </p>
-
-  <p>
-      Please check the Campus Resources System
-      for the complete booking details.
-  </p>
-  `
-
-);
 
       res.status(201).json({
 
@@ -1761,15 +1729,44 @@ app.put(
             );
 
 
-            /* EMAIL ALL REGISTERED USERS */
+            /* EMAIL TO  REGISTERED USER */
 
-            await sendEmailToAllUsers(
-                "Seminar Hall Booking Cancelled",
-                `
-                <h2>Seminar Hall Booking Cancelled</h2>
+            await transporter.sendMail({
+
+    from:
+        `"Campus Resources System" <${process.env.EMAIL_USER}>`,
+
+    to:
+        booking.user.email,
+
+    subject:
+        "Seminar Hall Booking Cancelled",
+
+    html: `
+        <div style="
+            font-family: Arial;
+            padding: 25px;
+            background: #f5f7fb;
+        ">
+
+            <div style="
+                max-width: 600px;
+                margin: auto;
+                background: white;
+                padding: 25px;
+                border-radius: 12px;
+            ">
+
+                <h2 style="color:#dc2626;">
+                    Seminar Hall Booking Cancelled
+                </h2>
 
                 <p>
-                    A seminar hall booking has been cancelled.
+                    Hello <b>${booking.user.name}</b>,
+                </p>
+
+                <p>
+                    Your seminar hall booking has been cancelled.
                 </p>
 
                 <p>
@@ -1786,15 +1783,15 @@ app.put(
                 </p>
 
                 <p>
-                    <b>Booked By:</b> ${bookedBy}
+                    The hall is now available again.
                 </p>
 
-                <p>
-                    The booking has been removed and
-                    the hall is available again.
-                </p>
-                `
-            );
+            </div>
+
+        </div>
+    `
+
+});
 
 
             res.json({
